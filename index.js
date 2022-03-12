@@ -3,6 +3,8 @@ app = express()
 
 var url = require('url');
 var dt = require('./date-time');
+var fs = require('fs')
+var http = require('http')
 
 const port = process.env.PORT || 3000
 const majorVersion = 1
@@ -86,38 +88,6 @@ app.get('/test', (request, response) => {
 
     // Close the response
     response.end('<h3>The End.</h3>');
-})
-
-// Return Batman as JSON.
-var spiderMan = {
-	"firstName":"Bruce",
-	"lastName":"Wayne",
-	"preferredName":"Batman",
-	"email":"darkknight@lewisu.edu",
-	"phoneNumber":"800-bat-mann",
-	"city":"Gotham",
-	"state":"NJ",
-	"zip":"07101",
-	"lat":"40.73",
-	"lng":"-74.17",
-	"favoriteHobby":"Flying",
-	"class":"cpsc-24700-001",
-	"room":"AS-104-A",
-	"startTime":"2 PM CT",
-	"seatNumber":"",
-	"inPerson":[
-		"Monday",
-		"Wednesday"
-	],
-	"virtual":[
-		"Friday"
-	]
-}
-
-app.get('/batman', (request, response) => {
-	console.log('Calling "/batman" on the Node.js server.')
-	response.type('application/json')
-	response.send(JSON.stringify(spiderMan, null, 4))
 })
 
 // Custom 404 page.
